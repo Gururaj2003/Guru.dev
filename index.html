@@ -729,7 +729,7 @@
 
                         <!-- Embedded Google Drive Video -->
                         <iframe 
-                            src="https://drive.google.com/file/d/1-VbXXLACmktFPCBDapnKIiYjfSENmyvT/preview" 
+                            src="https://drive.google.com/file/d/17YSbCYovfDPPk29Wkzs3T7aoQjg0KRmD/preview" 
                             width="100%" 
                             height="500" 
                             frameborder="0" 
@@ -808,33 +808,78 @@
 
 
                     <!-- Project 4 -->
-                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-3xl">⚡</span>
-                                <span class="badge-status">Scalable</span>
-                            </div>
-                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                                Serverless Web Application
-                            </h4>
-                            <p class="text-gray-400 mb-4 leading-relaxed">
-                                Created serverless REST API using AWS Lambda, API Gateway, DynamoDB with S3 and CloudFront distribution.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge-outline">AWS Lambda</span>
-                                <span class="badge-outline">API Gateway</span>
-                                <span class="badge-outline">DynamoDB</span>
-                            </div>
-                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
+                    <!-- Project Card -->
+            <div class="relative">
+            <!-- Checkbox toggle for modal -->
+            <input type="checkbox" id="modal-serverless" class="hidden peer" />
+
+            <!-- Project Card -->
+            <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000 p-6">
+                <div class="flex items-center justify-between mb-2">
+                <span class="text-3xl">⚡</span>
+                <span class="badge-status">Scalable</span>
+                </div>
+                <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                Serverless Web Application
+                </h4>
+                <p class="text-gray-400 mb-4 leading-relaxed">
+                Created serverless REST API using AWS Lambda, API Gateway, DynamoDB with S3 and CloudFront distribution.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                <span class="badge-outline">AWS Lambda</span>
+                <span class="badge-outline">API Gateway</span>
+                <span class="badge-outline">DynamoDB</span>
+                </div>
+
+                <!-- Button triggers modal -->
+                <label for="modal-serverless" class="cursor-pointer w-full py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg flex items-center justify-center gap-2 text-blue-400 hover:from-blue-600/30 hover:to-purple-600/30">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                View Details
+                </label>
+            </div>
+
+            <!-- Glass Overlay Modal -->
+            <div class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center
+                        opacity-0 pointer-events-none transition-opacity duration-300
+                        peer-checked:opacity-100 peer-checked:pointer-events-auto z-50">
+
+                <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl w-[90%] max-w-3xl p-6 relative shadow-lg">
+                <!-- Close Button -->
+                <label for="modal-serverless" class="absolute top-3 right-3 text-gray-200 cursor-pointer text-3xl">&times;</label>
+
+                <!-- Video -->
+                <div class="mb-4">
+                    <iframe src="https://drive.google.com/file/d/1cawnMohbfIS59kFt3GBzKbRd1-tL2b3d/preview" 
+                            width="100%" height="400" frameborder="0" allowfullscreen class="rounded-lg"></iframe>
+                </div>
+
+                <!-- Project Info -->
+                <h2 class="text-2xl font-bold text-white mb-2">⚡ Serverless Web Application</h2>
+                <p class="text-gray-200 mb-4">
+                    Fully serverless architecture using AWS. The REST API is built with <b>Lambda</b> and exposed through <b>API Gateway</b>, 
+                    with <b>DynamoDB</b> as backend storage and <b>S3 + CloudFront</b> for frontend hosting.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="badge-outline">AWS Lambda</span>
+                    <span class="badge-outline">API Gateway</span>
+                    <span class="badge-outline">DynamoDB</span>
+                    <span class="badge-outline">S3</span>
+                    <span class="badge-outline">CloudFront</span>
+                </div>
+                </div>
+            </div>
+            </div>
+
+
 
                     <!-- Project 5 -->
-                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
-                        <div class="p-6">
+                    <!-- Project 5: Monitoring & Alert System -->
+                    <div class="relative">
+                        <!-- Checkbox toggle for modal -->
+                        <input type="checkbox" id="modal-p5" class="hidden peer" />
+
+                        <!-- Project Card -->
+                        <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000 p-6">
                             <div class="flex items-center justify-between mb-2">
                                 <span class="text-3xl">📊</span>
                                 <span class="badge-status">Live</span>
@@ -843,19 +888,58 @@
                                 Monitoring & Alert System
                             </h4>
                             <p class="text-gray-400 mb-4 leading-relaxed">
-                                Implemented CloudWatch monitoring with SNS alerts for real-time system health and performance tracking gfhvhgvh ngvf hfcgfcf b vvfcfcf fcgfcgf fcgfcgf cgfchg
+                                Implemented CloudWatch monitoring with SNS alerts for real-time system health and performance tracking.
                             </p>
                             <div class="flex flex-wrap gap-1 mb-4">
                                 <span class="badge-outline">CloudWatch</span>
                                 <span class="badge-outline">SNS</span>
                                 <span class="badge-outline">Monitoring</span>
                             </div>
-                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+
+                            <!-- Button triggers modal -->
+                            <label for="modal-p5" class="cursor-pointer w-full py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg flex items-center justify-center gap-2 text-blue-400 hover:from-blue-600/30 hover:to-purple-600/30">
                                 <i data-lucide="external-link" class="w-4 h-4"></i>
                                 View Details
-                            </button>
+                            </label>
+                        </div>
+
+                        <!-- Overlay Modal -->
+                        <div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center 
+                                    opacity-0 pointer-events-none transition-opacity duration-300 
+                                    peer-checked:opacity-100 peer-checked:pointer-events-auto z-50">
+
+                            <div class="bg-gray-900 rounded-lg w-[90%] h-[90%] max-w-[1200px] max-h-[90vh] 
+                                        overflow-y-auto p-8 relative">
+                                
+                                <!-- Close Button -->
+                                <label for="modal-p5" class="absolute top-4 right-4 text-gray-400 cursor-pointer text-4xl font-bold">&times;</label>
+
+                                <!-- Modal Content -->
+                                <h3 class="text-4xl font-bold mb-6 text-white">Monitoring & Alert System</h3>
+                                <p class="text-gray-200 mb-4"><strong>Description:</strong> Real-time monitoring and alerting system using AWS CloudWatch and SNS.</p>
+                                <p class="text-gray-200 mb-4"><strong>Challenges:</strong> Fine-tuning alert thresholds, avoiding alert fatigue, and scaling for multiple services.</p>
+                                <p class="text-gray-200 mb-6"><strong>Learnings:</strong> Enhanced AWS monitoring skills and automated incident response strategies.</p>
+
+                                <!-- GitHub Link -->
+                                <a href="https://github.com/yourusername/monitoring-alert-system" 
+                                target="_blank" 
+                                class="text-blue-400 underline text-lg mb-4 inline-block">
+                                    🔗 View GitHub Repo
+                                </a>
+
+                                <!-- Video Embed -->
+                                <iframe 
+                                    src="https://drive.google.com/file/d/1-VbXXLACmktFPCBDapnKIiYjfSENmyvT/preview" 
+                                    width="100%" 
+                                    height="500" 
+                                    frameborder="0" 
+                                    allowfullscreen 
+                                    class="rounded-lg mb-4">
+                                </iframe>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -865,104 +949,288 @@
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Software Project 1 -->
-                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-3xl">📱</span>
-                                <span class="badge-status">Published</span>
+                    <!-- Project Card -->
+                    <!-- TailMate (CSS-only modal using checkbox + peer) -->
+                    <div class="relative">
+
+                    <!-- hidden checkbox (the 'peer') -->
+                    <input type="checkbox" id="modal-tailmate" class="hidden peer" />
+
+                    <!-- Project Card -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000 p-6">
+                        <div class="flex items-center justify-between mb-2">
+                        <span class="text-3xl">📱</span>
+                        <span class="badge-status">Published</span>
+                        </div>
+
+                        <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        TailMate Mobile App
+                        </h4>
+
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                        Full-stack Flutter app connecting pet owners with service providers using Firebase for real-time features.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge-outline">Flutter</span>
+                        <span class="badge-outline">Firebase</span>
+                        <span class="badge-outline">Dart</span>
+                        </div>
+
+                        <!-- label opens the modal (no JS) -->
+                        <label for="modal-tailmate" 
+                            class="cursor-pointer w-full mt-2 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 
+                                    border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 
+                                    transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        View Details
+                        </label>
+                    </div>
+
+                    <!-- Modal (must be a following sibling of the checkbox) -->
+                    <div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center 
+                                opacity-0 pointer-events-none transition-opacity duration-300 
+                                peer-checked:opacity-100 peer-checked:pointer-events-auto z-50">
+                        <div class="bg-gray-900 rounded-lg w-[90%] h-[90%] max-w-[900px] max-h-[90vh] overflow-y-auto p-8 relative">
+
+                        <!-- Close (label toggles checkbox off) -->
+                        <label for="modal-tailmate" class="absolute top-4 right-4 text-gray-400 cursor-pointer text-4xl font-bold">&times;</label>
+
+                        <!-- Modal content -->
+                        <h3 class="text-3xl font-bold mb-4 text-white">TailMate Mobile App</h3>
+
+                        <p class="text-gray-200 mb-4"><strong>Description:</strong> TailMate is a full-stack Flutter app connecting pet owners with service providers. It uses Firebase for realtime features (auth, chat, notifications) to make bookings and communication seamless.</p>
+
+                        <h4 class="text-lg font-semibold text-white mb-2">Key features</h4>
+                        <ul class="list-disc list-inside text-gray-300 mb-4">
+                            <li>User authentication with Firebase Auth</li>
+                            <li>Real-time chat between owners & providers (Firebase Realtime / Firestore)</li>
+                            <li>Push notifications for booking updates</li>
+                            <li>Service discovery with location search</li>
+                        </ul>
+
+                        <div class="flex gap-3 items-center">
+                            <a href="https://github.com/yourusername/tailmate" target="_blank" class="text-blue-400 underline">View GitHub Repo</a>
+                            <div class="flex flex-wrap gap-2 ml-auto">
+                            <span class="badge-outline">Flutter</span>
+                            <span class="badge-outline">Firebase</span>
+                            <span class="badge-outline">Dart</span>
                             </div>
-                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                                TailMate Mobile App
-                            </h4>
-                            <p class="text-gray-400 mb-4 leading-relaxed">
-                                Full-stack Flutter app connecting pet owners with service providers using Firebase for real-time features.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge-outline">Flutter</span>
-                                <span class="badge-outline">Firebase</span>
-                                <span class="badge-outline">Dart</span>
-                            </div>
-                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                View Details
-                            </button>
+                        </div>
+
                         </div>
                     </div>
+
+                    </div>
+
 
                     <!-- Software Project 2 -->
-                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-3xl">🚨</span>
-                                <span class="badge-status">Deployed</span>
+                    <!-- Fire Management System (CSS-only modal using checkbox + peer) -->
+                    <div class="relative">
+
+                    <!-- hidden checkbox (peer) -->
+                    <input type="checkbox" id="modal-fire" class="hidden peer" />
+
+                    <!-- Project Card -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000 p-6">
+                        <div class="flex items-center justify-between mb-2">
+                        <span class="text-3xl">🚨</span>
+                        <span class="badge-status">Deployed</span>
+                        </div>
+
+                        <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        Fire Management System
+                        </h4>
+
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                        Secure multi-role web portal for emergency reporting and tracking with real-time updates.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge-outline">Django</span>
+                        <span class="badge-outline">HTML</span>
+                        <span class="badge-outline">CSS</span>
+                        </div>
+
+                        <!-- label opens the modal -->
+                        <label for="modal-fire" 
+                            class="cursor-pointer w-full mt-2 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 
+                                    border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 
+                                    transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        View Details
+                        </label>
+                    </div>
+
+                    <!-- Modal (must be sibling of checkbox) -->
+                    <div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center 
+                                opacity-0 pointer-events-none transition-opacity duration-300 
+                                peer-checked:opacity-100 peer-checked:pointer-events-auto z-50">
+                        <div class="bg-gray-900 rounded-lg w-[90%] h-[90%] max-w-[900px] max-h-[90vh] overflow-y-auto p-8 relative">
+
+                        <!-- Close button -->
+                        <label for="modal-fire" class="absolute top-4 right-4 text-gray-400 cursor-pointer text-4xl font-bold">&times;</label>
+
+                        <!-- Modal content -->
+                        <h3 class="text-3xl font-bold mb-4 text-white">Fire Management System</h3>
+
+                        <p class="text-gray-200 mb-4"><strong>Description:</strong> Secure multi-role web portal for emergency reporting and tracking. Provides real-time updates and notifications to authorized personnel.</p>
+
+                        <h4 class="text-lg font-semibold text-white mb-2">Key Features</h4>
+                        <ul class="list-disc list-inside text-gray-300 mb-4">
+                            <li>Multi-role authentication and access control</li>
+                            <li>Real-time incident reporting and tracking</li>
+                            <li>Interactive dashboard for monitoring ongoing emergencies</li>
+                            <li>Email and SMS notifications for alerts</li>
+                        </ul>
+
+                        <div class="flex gap-3 items-center">
+                            <a href="https://github.com/yourusername/fire-management" target="_blank" class="text-blue-400 underline">View GitHub Repo</a>
+                            <div class="flex flex-wrap gap-2 ml-auto">
+                            <span class="badge-outline">Django</span>
+                            <span class="badge-outline">HTML</span>
+                            <span class="badge-outline">CSS</span>
                             </div>
-                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                                Fire Management System
-                            </h4>
-                            <p class="text-gray-400 mb-4 leading-relaxed">
-                                Secure multi-role web portal for emergency reporting and tracking with real-time updates.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge-outline">Django</span>
-                                <span class="badge-outline">HTML</span>
-                                <span class="badge-outline">CSS</span>
-                            </div>
-                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                View Details
-                            </button>
+                        </div>
+
                         </div>
                     </div>
+
+                    </div>
+
 
                     <!-- Software Project 3 -->
-                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-3xl">🏢</span>
-                                <span class="badge-status">Active</span>
-                            </div>
-                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                                Visitors Management Portal
-                            </h4>
-                            <p class="text-gray-400 mb-4 leading-relaxed">
-                                Digital visitor logging system with enhanced security features and comprehensive reporting.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge-outline">PHP</span>
-                                <span class="badge-outline">MySQL</span>
-                                <span class="badge-outline">Bootstrap</span>
-                            </div>
-                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                View Details
-                            </button>
+                    <!-- Visitors Management Portal -->
+                    <!-- Visitors Management Portal -->
+                    <div class="relative">
+
+                    <!-- Hidden checkbox to toggle modal -->
+                    <input type="checkbox" id="modal-visitors" class="hidden peer" />
+
+                    <!-- Project Card -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000 p-6">
+                        <div class="flex items-center justify-between mb-2">
+                        <span class="text-3xl">🏢</span>
+                        <span class="badge-status">Active</span>
+                        </div>
+
+                        <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        Visitors Management Portal
+                        </h4>
+
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                        Digital visitor logging system with enhanced security features and comprehensive reporting.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge-outline">PHP</span>
+                        <span class="badge-outline">MySQL</span>
+                        <span class="badge-outline">Bootstrap</span>
+                        </div>
+
+                        <!-- Label opens modal -->
+                        <label for="modal-visitors" 
+                            class="cursor-pointer w-full mt-2 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 
+                                    border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 
+                                    transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        View Details
+                        </label>
+                    </div>
+
+                    <!-- Glassmorphism Modal -->
+                    <div class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center 
+                                opacity-0 pointer-events-none transition-opacity duration-300 
+                                peer-checked:opacity-100 peer-checked:pointer-events-auto z-50">
+                        <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl 
+                                    w-[90%] h-[90%] max-w-[900px] max-h-[90vh] overflow-y-auto p-8 relative shadow-lg">
+
+                        <!-- Close button -->
+                        <label for="modal-visitors" class="absolute top-4 right-4 text-gray-200 cursor-pointer text-4xl font-bold">&times;</label>
+
+                        <!-- Modal content -->
+                        <h3 class="text-3xl font-bold mb-4 text-white">Visitors Management Portal</h3>
+
+                        <p class="text-gray-200 mb-4">
+                            <strong>Description:</strong> Digital visitor logging system providing secure entry and exit tracking, with detailed reports for administration.
+                        </p>
+
+                        <h4 class="text-lg font-semibold text-white mb-2">Key Features</h4>
+                        <ul class="list-disc list-inside text-gray-300 mb-4">
+                            <li>Secure visitor registration and login</li>
+                            <li>Role-based access control for staff and admins</li>
+                            <li>Comprehensive reporting and analytics</li>
+                            <li>Bootstrap-powered responsive interface</li>
+                        </ul>
+
+                        <a href="https://github.com/yourusername/visitors-management" target="_blank" class="text-blue-400 underline">View GitHub Repo</a>
+
                         </div>
                     </div>
 
+                    </div>
+
+
                     <!-- Software Project 4 -->
-                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-3xl">🎤</span>
-                                <span class="badge-status">Enhanced</span>
-                            </div>
-                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                                AI Voice Assistant
-                            </h4>
-                            <p class="text-gray-400 mb-4 leading-relaxed">
-                                Intelligent voice assistant integrated with multiple APIs for weather, search, and automation.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge-outline">Python</span>
-                                <span class="badge-outline">APIs</span>
-                                <span class="badge-outline">AI</span>
-                            </div>
-                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                View Details
-                            </button>
+                    <!-- Software Project 4 -->
+                    <div class="relative">
+                    <!-- Checkbox toggle for modal -->
+                    <input type="checkbox" id="modal-s4" class="hidden peer" />
+
+                    <!-- Project Card -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000 p-6">
+                        <div class="flex items-center justify-between mb-2">
+                        <span class="text-3xl">🎤</span>
+                        <span class="badge-status">Enhanced</span>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        AI Voice Assistant
+                        </h4>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                        Intelligent voice assistant integrated with multiple APIs for weather, search, and automation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge-outline">Python</span>
+                        <span class="badge-outline">APIs</span>
+                        <span class="badge-outline">AI</span>
+                        </div>
+
+                        <!-- Button triggers modal -->
+                        <label for="modal-s4" class="cursor-pointer w-full py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg flex items-center justify-center gap-2 text-blue-400 hover:from-blue-600/30 hover:to-purple-600/30">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        View Details
+                        </label>
+                    </div>
+
+                    <!-- Glass Overlay Modal -->
+                    <div class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center
+                                opacity-0 pointer-events-none transition-opacity duration-300
+                                peer-checked:opacity-100 peer-checked:pointer-events-auto z-50">
+                        
+                        <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl
+                                    w-[90%] h-[90%] max-w-[900px] max-h-[90vh] overflow-y-auto p-8 relative shadow-lg">
+                        
+                        <!-- Close Button -->
+                        <label for="modal-s4" class="absolute top-4 right-4 text-gray-200 cursor-pointer text-4xl font-bold">&times;</label>
+
+                        <!-- Modal Content -->
+                        <h3 class="text-3xl font-bold mb-4 text-white">AI Voice Assistant</h3>
+                        <p class="text-gray-200 mb-4"><strong>Description:</strong> A Python-powered intelligent voice assistant integrated with APIs for weather, search, and task automation.</p>
+                        <p class="text-gray-200 mb-4"><strong>Challenges:</strong> Handling natural language queries, integrating multiple APIs, and optimizing real-time performance.</p>
+                        <p class="text-gray-200 mb-6"><strong>Learnings:</strong> Improved understanding of AI/ML integration, API handling, and speech-to-text technologies.</p>
+
+                        <!-- GitHub Link -->
+                        <a href="https://github.com/yourusername/ai-voice-assistant" 
+                            target="_blank" 
+                            class="text-blue-400 underline text-lg mb-4 inline-block">
+                            🔗 View GitHub Repo
+                        </a>
+
                         </div>
                     </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
