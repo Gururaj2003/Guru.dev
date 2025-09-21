@@ -491,25 +491,36 @@
             </div>
             
             <div class="fade-in stagger-4 flex flex-col md:flex-row gap-6 justify-center items-center">
-                <button class="btn-glow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl border-0 flex items-center gap-2">
+                <button id="downloadResume" class="btn-glow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl border-0 flex items-center gap-2">
                     <i data-lucide="download" class="w-5 h-5"></i>
                     Download Resume
                 </button>
                 
-                <div class="flex gap-4">
-                    <button class="icon-hover p-4 rounded-full glass-card border border-slate-700 hover:text-gray-300 transition-all duration-300">
+                <div class="flex gap-4 justify-center items-center mt-2">
+                    <a href="https://github.com/yourusername" target="_blank" class="icon-hover p-4 rounded-full glass-card border border-slate-700 hover:text-gray-300 transition-all duration-300">
                         <i data-lucide="github" class="w-6 h-6"></i>
-                    </button>
-                    <button class="icon-hover p-4 rounded-full glass-card border border-slate-700 hover:text-blue-400 transition-all duration-300">
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="icon-hover p-4 rounded-full glass-card border border-slate-700 hover:text-blue-400 transition-all duration-300">
                         <i data-lucide="linkedin" class="w-6 h-6"></i>
-                    </button>
-                    <button class="icon-hover p-4 rounded-full glass-card border border-slate-700 hover:text-green-400 transition-all duration-300">
+                    </a>
+                    <a href="mailto:yourmail@example.com" class="icon-hover p-4 rounded-full glass-card border border-slate-700 hover:text-green-400 transition-all duration-300">
                         <i data-lucide="mail" class="w-6 h-6"></i>
-                    </button>
+                    </a>
                 </div>
-            </div>
+                </div>
+            <script>
+            document.getElementById('downloadResume').addEventListener('click', function() {
+
+                const link = document.createElement('a');
+                link.href = 'resume.pdf'; // Path to your PDF file
+                link.download = 'Gururaj_Kabburi_Resume.pdf'; // Name of the downloaded file
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+            </script>
             
-            <div class="fade-in stagger-5 mt-16 flex justify-center items-center gap-8 text-sm text-gray-500">
+            <div class="fade-in stagger-5 mt-8 flex justify-center items-center gap-8 text-sm text-gray-500">
                 <div class="flex items-center gap-2">
                     <i data-lucide="map-pin" class="w-4 h-4 text-blue-400"></i>
                     Belgaum, Karnataka
@@ -610,80 +621,191 @@
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project 1 -->
-                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-3xl">🚀</span>
-                                <span class="badge-status">Production</span>
-                            </div>
-                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                                AWS Infrastructure Automation
-                            </h4>
-                            <p class="text-gray-400 mb-4 leading-relaxed">
-                                Automated creation of VPC, EC2 instances, and S3 buckets using Terraform with reusable modules for standardized deployments.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge-outline">Terraform</span>
-                                <span class="badge-outline">AWS</span>
-                                <span class="badge-outline">IaC</span>
-                            </div>
-                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                View Details
-                            </button>
+                <div class="relative">
+
+                    <input type="checkbox" id="modal-1" class="hidden peer" />
+
+                    <!-- Project Card -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000 p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-3xl">🚀</span>
+                            <span class="badge-status">Production</span>
                         </div>
+                        <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                            AWS Infrastructure Automation
+                        </h4>
+                        <p class="text-gray-400 mb-4 leading-relaxed">
+                            Automated creation of VPC, EC2 instances, and S3 buckets using Terraform with reusable modules for standardized deployments.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="badge-outline">Terraform</span>
+                            <span class="badge-outline">AWS</span>
+                            <span class="badge-outline">IaC</span>
+                        </div>
+
+                        <!-- View Details button (label for checkbox) -->
+                        <label for="modal-1" class="cursor-pointer w-full py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 flex items-center justify-center gap-2 text-blue-400">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                            View Details
+                        </label>
                     </div>
+
+                    <!-- Modal (sibling of checkbox) -->
+                    <div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 peer-checked:opacity-100 peer-checked:pointer-events-auto z-50">
+                        <div class="bg-gray-900 rounded-lg w-[90%] h-[90%] max-w-[1200px] max-h-[90vh] overflow-y-auto p-8 relative">
+
+                            <!-- Close button -->
+                            <label for="modal-1" class="absolute top-4 right-4 text-gray-400 cursor-pointer text-4xl font-bold">&times;</label>
+
+                            <!-- Modal content -->
+                            <h3 class="text-4xl font-bold mb-6 text-white">AWS Infrastructure Automation</h3>
+                            <p class="text-gray-200 mb-4"><strong>Description:</strong> Full Terraform automation for AWS resources, including VPC, EC2, S3, IAM, etc.</p>
+                            <p class="text-gray-200 mb-4"><strong>Challenges:</strong> Handling dependencies and multiple AWS accounts while keeping modules reusable.</p>
+                            <p class="text-gray-200 mb-6"><strong>Learnings:</strong> Infrastructure as Code best practices and CI/CD integration.</p>
+                            
+                            <a href="https://github.com/yourusername/project1" target="_blank" class="text-blue-400 underline text-lg">View GitHub Repo</a>
+                            <!-- Embedded Google Drive Video -->
+                            <iframe 
+                            src="https://drive.google.com/file/d/1-VbXXLACmktFPCBDapnKIiYjfSENmyvT/preview" 
+                            width="100%" 
+                            height="500" 
+                            frameborder="0" 
+                            allow="autoplay; encrypted-media" 
+                            allowfullscreen 
+                            class="rounded-lg mb-4">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+                            
+                        
+
+
 
                     <!-- Project 2 -->
-                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-3xl">☸️</span>
-                                <span class="badge-status">Active</span>
-                            </div>
-                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                                Kubernetes on AWS (EKS)
-                            </h4>
-                            <p class="text-gray-400 mb-4 leading-relaxed">
-                                Deployed Dockerized web applications on AWS EKS cluster with load balancer, auto-scaling, and self-healing capabilities.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge-outline">Kubernetes</span>
-                                <span class="badge-outline">AWS EKS</span>
-                                <span class="badge-outline">Docker</span>
-                            </div>
-                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                View Details
-                            </button>
-                        </div>
+            <div class="relative">
+
+                <input type="checkbox" id="modal-2" class="hidden peer" />
+
+                <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000 p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-3xl">☸️</span>
+                        <span class="badge-status">Active</span>
+                    </div>
+                    <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        Kubernetes on AWS (EKS)
+                    </h4>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        Deployed Dockerized web applications on AWS EKS cluster with load balancer, auto-scaling, and self-healing capabilities.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge-outline">Kubernetes</span>
+                        <span class="badge-outline">AWS EKS</span>
+                        <span class="badge-outline">Docker</span>
                     </div>
 
-                    <!-- Project 3 -->
-                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-3xl">🔄</span>
-                                <span class="badge-status">Optimized</span>
-                            </div>
-                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                                CI/CD Pipeline Automation
-                            </h4>
-                            <p class="text-gray-400 mb-4 leading-relaxed">
-                                Built Jenkins pipeline with GitHub integration for automated builds, testing, and AWS deployment.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge-outline">Jenkins</span>
-                                <span class="badge-outline">Docker</span>
-                                <span class="badge-outline">AWS</span>
-                                <span class="badge-outline">CI/CD</span>
-                            </div>
-                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                                View Details
-                            </button>
-                        </div>
+                    <!-- View Details button -->
+                    <label for="modal-2" class="cursor-pointer w-full py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 flex items-center justify-center gap-2 text-blue-400">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        View Details
+                    </label>
+                </div>
+
+                <!-- Modal -->
+                <div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 peer-checked:opacity-100 peer-checked:pointer-events-auto z-50">
+                    <div class="bg-gray-900 rounded-lg w-[90%] h-[90%] max-w-[1200px] max-h-[90vh] overflow-y-auto p-8 relative">
+
+                        <!-- Close button -->
+                        <label for="modal-2" class="absolute top-4 right-4 text-gray-400 cursor-pointer text-4xl font-bold">&times;</label>
+
+                        <!-- Modal content -->
+                        <h3 class="text-4xl font-bold mb-6 text-white">Kubernetes on AWS (EKS)</h3>
+                        <p class="text-gray-200 mb-4"><strong>Description:</strong> Deployed Dockerized web applications on AWS EKS cluster with load balancer, auto-scaling, and self-healing capabilities.</p>
+                        <p class="text-gray-200 mb-4"><strong>Challenges:</strong> Setting up networking, load balancers, and maintaining cluster security.</p>
+                        <p class="text-gray-200 mb-6"><strong>Learnings:</strong> Kubernetes deployment, AWS EKS best practices, and CI/CD integration.</p>
+                        
+                        <a href="https://github.com/yourusername/project2" target="_blank" class="text-blue-400 underline text-lg">View GitHub Repo</a>
+
+                        <!-- Embedded Google Drive Video -->
+                        <iframe 
+                            src="https://drive.google.com/file/d/1-VbXXLACmktFPCBDapnKIiYjfSENmyvT/preview" 
+                            width="100%" 
+                            height="500" 
+                            frameborder="0" 
+                            allow="autoplay; encrypted-media" 
+                            allowfullscreen 
+                            class="rounded-lg mb-4">
+                        </iframe>
+
                     </div>
+                </div>
+
+            </div>
+
+
+                    <!-- Project 3 -->
+            <div class="relative">
+
+                <!-- Hidden checkbox for modal control -->
+                <input type="checkbox" id="modal-3" class="hidden peer" />
+
+                <!-- Project Card -->
+                <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000 p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-3xl">🔄</span>
+                        <span class="badge-status">Optimized</span>
+                    </div>
+                    <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        CI/CD Pipeline Automation
+                    </h4>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        Built Jenkins pipsdca  ade dcdsf eline with GitHub integration for automated builds, testing, and AWS deployment.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="badge-outline">Jenkins</span>
+                        <span class="badge-outline">Docker</span>
+                        <span class="badge-outline">AWS</span>
+                        <span class="badge-outline">CI/CD</span>
+                    </div>
+
+                    <!-- View Details button (label for checkbox) -->
+                    <label for="modal-3" class="cursor-pointer w-full py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 flex items-center justify-center gap-2 text-blue-400">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        View Details
+                    </label>
+                </div>
+
+                <!-- Modal (sibling of checkbox) -->
+                <div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 peer-checked:opacity-100 peer-checked:pointer-events-auto z-50">
+                    <div class="bg-gray-900 rounded-lg w-[90%] h-[90%] max-w-[1200px] max-h-[90vh] overflow-y-auto p-8 relative">
+
+                        <!-- Close button -->
+                        <label for="modal-3" class="absolute top-4 right-4 text-gray-400 cursor-pointer text-4xl font-bold">&times;</label>
+
+                        <!-- Modal content -->
+                        <h3 class="text-4xl font-bold mb-6 text-white">CI/CD Pipeline Automation</h3>
+                        <p class="text-gray-200 mb-4"><strong>Description:</strong> Full Jenkins pipeline automation with GitHub integration, automated builds, testing, and AWS deployment.</p>
+                        <p class="text-gray-200 mb-4"><strong>Challenges:</strong> Handling multiple environments, integration testing, and deployment rollbacks.</p>
+                        <p class="text-gray-200 mb-6"><strong>Learnings:</strong> CI/CD best practices, automated testing, and AWS deployment strategies.</p>
+
+                        <a href="https://github.com/yourusername/project3" target="_blank" class="text-blue-400 underline text-lg mb-4 inline-block">View GitHub Repo</a>
+
+                        <!-- Embedded Google Drive Video -->
+                        <iframe 
+                            src="https://drive.google.com/file/d/1cawnMohbfIS59kFt3GBzKbRd1-tL2b3d/preview" 
+                            width="100%" 
+                            height="500" 
+                            frameborder="0" 
+                            allowfullscreen
+                            class="rounded-lg mb-4">
+                        </iframe>
+
+                    </div>
+                </div>
+
+            </div>
+
 
                     <!-- Project 4 -->
                     <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
@@ -721,9 +843,9 @@
                                 Monitoring & Alert System
                             </h4>
                             <p class="text-gray-400 mb-4 leading-relaxed">
-                                Implemented CloudWatch monitoring with SNS alerts for real-time system health and performance tracking.
+                                Implemented CloudWatch monitoring with SNS alerts for real-time system health and performance tracking gfhvhgvh ngvf hfcgfcf b vvfcfcf fcgfcgf fcgfcgf cgfchg
                             </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
+                            <div class="flex flex-wrap gap-1 mb-4">
                                 <span class="badge-outline">CloudWatch</span>
                                 <span class="badge-outline">SNS</span>
                                 <span class="badge-outline">Monitoring</span>
