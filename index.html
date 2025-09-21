@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gururaj Kabburi - Cloud & DevOps Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #0f172a;
+            overflow-x: hidden;
+        }
+        
+        /* Canvas Background */
+        .canvas-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+        
+        /* Floating Icons */
+        .floating-icon {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.2;
+            animation: floatIcon 10s ease-in-out infinite;
+        }
+        
+        .floating-icon:nth-child(1) { animation-delay: 0s; }
+        .floating-icon:nth-child(2) { animation-delay: 1s; }
+        .floating-icon:nth-child(3) { animation-delay: 2s; }
+        .floating-icon:nth-child(4) { animation-delay: 3s; }
+        .floating-icon:nth-child(5) { animation-delay: 4s; }
+        .floating-icon:nth-child(6) { animation-delay: 5s; }
+        
+        @keyframes floatIcon {
+            0%, 100% { 
+                transform: rotate(0deg) scale(0.8) translateY(0px);
+            }
+            25% { 
+                transform: rotate(90deg) scale(1.2) translateY(-20px);
+            }
+            50% { 
+                transform: rotate(180deg) scale(1.0) translateY(0px);
+            }
+            75% { 
+                transform: rotate(270deg) scale(1.2) translateY(20px);
+            }
+        }
+        
+        /* Floating Geometric Shapes */
+        .floating-shape {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatShape 15s ease-in-out infinite;
+        }
+        
+        .floating-shape:nth-child(1) { animation-delay: 0s; }
+        .floating-shape:nth-child(2) { animation-delay: 0.5s; }
+        .floating-shape:nth-child(3) { animation-delay: 1s; }
+        .floating-shape:nth-child(4) { animation-delay: 1.5s; }
+        .floating-shape:nth-child(5) { animation-delay: 2s; }
+        .floating-shape:nth-child(6) { animation-delay: 2.5s; }
+        
+        @keyframes floatShape {
+            0%, 100% { 
+                transform: rotate(0deg) scale(0.5) translateX(-50px) translateY(-30px);
+            }
+            33% { 
+                transform: rotate(120deg) scale(1) translateX(50px) translateY(30px);
+            }
+            66% { 
+                transform: rotate(240deg) scale(0.8) translateX(-25px) translateY(-15px);
+            }
+        }
+        
+        /* Glass Card Styling */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent, transparent);
+            backdrop-filter: blur(16px);
+        }
+        
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+            backdrop-filter: blur(8px);
+        }
+        
+        .glass-card > * {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Particle Background */
+        .particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(2n) {
+            background: rgba(168, 85, 247, 0.3);
+            animation-delay: -2s;
+        }
+        
+        .particle:nth-child(3n) {
+            background: rgba(34, 197, 94, 0.3);
+            animation-delay: -4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+            25% { 
+                transform: translateY(-20px) translateX(10px) rotate(90deg);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: translateY(-40px) translateX(-10px) rotate(180deg);
+                opacity: 0.3;
+            }
+            75% { 
+                transform: translateY(-20px) translateX(-15px) rotate(270deg);
+                opacity: 0.6;
+            }
+        }
+        
+        /* TypeWriter Animation */
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #3b82f6;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            0% { width: 0; }
+            25% { width: 100%; }
+            75% { width: 100%; }
+            100% { width: 0; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #3b82f6; }
+        }
+        
+        /* Fade In Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+        
+        /* Hover Effects */
+        .skill-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(59, 130, 246, 0.2);
+        }
+        
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Gradient Text */
+        .gradient-text-blue-purple {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-text-purple-cyan {
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-text-green-blue {
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-text-hero {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Navigation Underline Animation */
+        .nav-underline {
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-item:hover .nav-underline {
+            width: 100%;
+        }
+        
+        /* Button Glow Effect */
+        .btn-glow {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+            transform: scale(1.02);
+        }
+        
+        /* Icon Hover Effects */
+        .icon-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .icon-hover:hover {
+            transform: scale(1.2) rotate(5deg);
+            color: #3b82f6;
+        }
+        
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Badge Styles */
+        .badge-secondary {
+            background: rgba(15, 23, 42, 0.5);
+            color: #d1d5db;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .badge-secondary:hover {
+            background: rgba(30, 41, 59, 0.5);
+        }
+        
+        .badge-outline {
+            background: transparent;
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .badge-outline:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .badge-status {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Perspective for 3D effects */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white overflow-x-hidden">
+    <!-- Canvas Background -->
+    <canvas id="particleCanvas" class="canvas-background"></canvas>
+    
+    <!-- Floating Icons Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <!-- Cloud Icon -->
+        <div class="floating-icon" style="left: 20%; top: 20%;">
+            <i data-lucide="cloud" style="width: 48px; height: 48px; color: #3B82F6; filter: drop-shadow(0 0 10px #3B82F640);"></i>
+        </div>
+        
+        <!-- Server Icon -->
+        <div class="floating-icon" style="left: 50%; top: 20%;">
+            <i data-lucide="server" style="width: 48px; height: 48px; color: #8B5CF6; filter: drop-shadow(0 0 10px #8B5CF640);"></i>
+        </div>
+        
+        <!-- CPU Icon -->
+        <div class="floating-icon" style="left: 80%; top: 20%;">
+            <i data-lucide="cpu" style="width: 48px; height: 48px; color: #06B6D4; filter: drop-shadow(0 0 10px #06B6D440);"></i>
+        </div>
+        
+        <!-- Database Icon -->
+        <div class="floating-icon" style="left: 20%; top: 50%;">
+            <i data-lucide="database" style="width: 48px; height: 48px; color: #10B981; filter: drop-shadow(0 0 10px #10B98140);"></i>
+        </div>
+        
+        <!-- Git Branch Icon -->
+        <div class="floating-icon" style="left: 50%; top: 50%;">
+            <i data-lucide="git-branch" style="width: 48px; height: 48px; color: #F59E0B; filter: drop-shadow(0 0 10px #F59E0B40);"></i>
+        </div>
+        
+        <!-- Shield Icon -->
+        <div class="floating-icon" style="left: 80%; top: 50%;">
+            <i data-lucide="shield" style="width: 48px; height: 48px; color: #EF4444; filter: drop-shadow(0 0 10px #EF444440);"></i>
+        </div>
+        
+        <!-- Floating Geometric Shapes -->
+        <div class="floating-shape" style="left: 10%; top: 10%;">
+            <div class="w-8 h-8 bg-blue-500/20 rotate-45" style="box-shadow: 0 0 20px #3B82F630;"></div>
+        </div>
+        
+        <div class="floating-shape" style="left: 25%; top: 10%;">
+            <div class="w-8 h-8 bg-purple-500/20 rounded-full" style="box-shadow: 0 0 20px #8B5CF630;"></div>
+        </div>
+        
+        <div class="floating-shape" style="left: 40%; top: 10%;">
+            <div class="w-8 h-8 bg-cyan-500/20" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%); box-shadow: 0 0 20px #06B6D430;"></div>
+        </div>
+        
+        <div class="floating-shape" style="left: 55%; top: 50%;">
+            <div class="w-8 h-8 bg-blue-500/20 rotate-45" style="box-shadow: 0 0 20px #3B82F630;"></div>
+        </div>
+        
+        <div class="floating-shape" style="left: 70%; top: 50%;">
+            <div class="w-8 h-8 bg-purple-500/20 rounded-full" style="box-shadow: 0 0 20px #8B5CF630;"></div>
+        </div>
+        
+        <div class="floating-shape" style="left: 85%; top: 10%;">
+            <div class="w-8 h-8 bg-cyan-500/20" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%); box-shadow: 0 0 20px #06B6D430;"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-blue-500/20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold gradient-text-blue-purple">
+                    GURURAJ.DEV
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-item text-gray-300 hover:text-blue-400 transition-colors relative py-2">
+                        About
+                        <div class="nav-underline"></div>
+                    </a>
+                    <a href="#skills" class="nav-item text-gray-300 hover:text-blue-400 transition-colors relative py-2">
+                        Skills
+                        <div class="nav-underline"></div>
+                    </a>
+                    <a href="#projects" class="nav-item text-gray-300 hover:text-blue-400 transition-colors relative py-2">
+                        Projects
+                        <div class="nav-underline"></div>
+                    </a>
+                    <a href="#contact" class="nav-item text-gray-300 hover:text-blue-400 transition-colors relative py-2">
+                        Contact
+                        <div class="nav-underline"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="text-center z-10 max-w-6xl mx-auto px-6">
+            <div class="fade-in stagger-1">
+                <h1 class="text-6xl md:text-8xl font-bold mb-6">
+                    <span class="gradient-text-hero">GURURAJ</span>
+                    <br />
+                    <span class="text-white">KABBURI</span>
+                </h1>
+            </div>
+            
+            <div class="fade-in stagger-2 mb-8 h-20">
+                <div id="typewriter" class="text-2xl md:text-4xl font-light text-gray-300 inline-block">
+                    Cloud Architect
+                </div>
+            </div>
+            
+            <div class="fade-in stagger-3">
+                <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Crafting scalable cloud infrastructures and automated pipelines that transform digital experiences. 
+                    Passionate about building the future of technology.
+                </p>
+            </div>
+            
+            <div class="fade-in stagger-4 flex flex-col md:flex-row gap-6 justify-center items-center">
+                <button class="btn-glow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl border-0 flex items-center gap-2">
+                    <i data-lucide="download" class="w-5 h-5"></i>
+                    Download Resume
+                </button>
+                
+                <div class="flex gap-4">
+                    <button class="icon-hover p-4 rounded-full glass-card border border-slate-700 hover:text-gray-300 transition-all duration-300">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </button>
+                    <button class="icon-hover p-4 rounded-full glass-card border border-slate-700 hover:text-blue-400 transition-all duration-300">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </button>
+                    <button class="icon-hover p-4 rounded-full glass-card border border-slate-700 hover:text-green-400 transition-all duration-300">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="fade-in stagger-5 mt-16 flex justify-center items-center gap-8 text-sm text-gray-500">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-blue-400"></i>
+                    Belgaum, Karnataka
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="phone" class="w-4 h-4 text-purple-400"></i>
+                    +91 9886231154
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-5xl font-bold mb-4 gradient-text-blue-purple">Technical Arsenal</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Cloud Platforms -->
+                <div class="glass-card p-6 rounded-xl skill-card scroll-reveal perspective-1000">
+                    <div class="flex items-center gap-3 mb-6 p-3 rounded-lg bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
+                        <i data-lucide="cloud" class="w-6 h-6 text-blue-400"></i>
+                        <h3 class="text-lg font-semibold text-white">Cloud Platforms</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="badge-secondary inline-block mb-2 mr-2">AWS EC2</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">AWS S3</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">AWS VPC</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">AWS IAM</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">AWS Lambda</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">AWS EKS</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">AWS SNS</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">AWS SQS</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">AWS RDS</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">CloudWatch</span>
+                    </div>
+                </div>
+
+                <!-- DevOps Arsenal -->
+                <div class="glass-card p-6 rounded-xl skill-card scroll-reveal perspective-1000">
+                    <div class="flex items-center gap-3 mb-6 p-3 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10">
+                        <i data-lucide="cpu" class="w-6 h-6 text-blue-400"></i>
+                        <h3 class="text-lg font-semibold text-white">DevOps Arsenal</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="badge-secondary inline-block mb-2 mr-2">Jenkins</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">Docker</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">Kubernetes</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">Terraform</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">GitHub Actions</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">CI/CD</span>
+                    </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="glass-card p-6 rounded-xl skill-card scroll-reveal perspective-1000">
+                    <div class="flex items-center gap-3 mb-6 p-3 rounded-lg bg-gradient-to-r from-green-500/10 to-emerald-500/10">
+                        <i data-lucide="code" class="w-6 h-6 text-blue-400"></i>
+                        <h3 class="text-lg font-semibold text-white">Programming</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="badge-secondary inline-block mb-2 mr-2">Python</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">SQL</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">Django</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">Flutter</span>
+                    </div>
+                </div>
+
+                <!-- Data & Tools -->
+                <div class="glass-card p-6 rounded-xl skill-card scroll-reveal perspective-1000">
+                    <div class="flex items-center gap-3 mb-6 p-3 rounded-lg bg-gradient-to-r from-orange-500/10 to-red-500/10">
+                        <i data-lucide="database" class="w-6 h-6 text-blue-400"></i>
+                        <h3 class="text-lg font-semibold text-white">Data & Tools</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="badge-secondary inline-block mb-2 mr-2">Firebase</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">REST APIs</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">Linux</span>
+                        <span class="badge-secondary inline-block mb-2 mr-2">Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-5xl font-bold mb-4 gradient-text-purple-cyan">Featured Projects</h2>
+            </div>
+            
+            <!-- Cloud & DevOps Projects -->
+            <div class="mb-16 scroll-reveal">
+                <h3 class="text-3xl font-semibold text-center mb-12 text-gray-300">Cloud & DevOps</h3>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-3xl">🚀</span>
+                                <span class="badge-status">Production</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                AWS Infrastructure Automation
+                            </h4>
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Automated creation of VPC, EC2 instances, and S3 buckets using Terraform with reusable modules for standardized deployments.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-outline">Terraform</span>
+                                <span class="badge-outline">AWS</span>
+                                <span class="badge-outline">IaC</span>
+                            </div>
+                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-3xl">☸️</span>
+                                <span class="badge-status">Active</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                Kubernetes on AWS (EKS)
+                            </h4>
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Deployed Dockerized web applications on AWS EKS cluster with load balancer, auto-scaling, and self-healing capabilities.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-outline">Kubernetes</span>
+                                <span class="badge-outline">AWS EKS</span>
+                                <span class="badge-outline">Docker</span>
+                            </div>
+                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-3xl">🔄</span>
+                                <span class="badge-status">Optimized</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                CI/CD Pipeline Automation
+                            </h4>
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Built Jenkins pipeline with GitHub integration for automated builds, testing, and AWS deployment.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-outline">Jenkins</span>
+                                <span class="badge-outline">Docker</span>
+                                <span class="badge-outline">AWS</span>
+                                <span class="badge-outline">CI/CD</span>
+                            </div>
+                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-3xl">⚡</span>
+                                <span class="badge-status">Scalable</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                Serverless Web Application
+                            </h4>
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Created serverless REST API using AWS Lambda, API Gateway, DynamoDB with S3 and CloudFront distribution.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-outline">AWS Lambda</span>
+                                <span class="badge-outline">API Gateway</span>
+                                <span class="badge-outline">DynamoDB</span>
+                            </div>
+                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-3xl">📊</span>
+                                <span class="badge-status">Live</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                Monitoring & Alert System
+                            </h4>
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Implemented CloudWatch monitoring with SNS alerts for real-time system health and performance tracking.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-outline">CloudWatch</span>
+                                <span class="badge-outline">SNS</span>
+                                <span class="badge-outline">Monitoring</span>
+                            </div>
+                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Software Development Projects -->
+            <div class="scroll-reveal">
+                <h3 class="text-3xl font-semibold text-center mb-12 text-gray-300">Software Development</h3>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Software Project 1 -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-3xl">📱</span>
+                                <span class="badge-status">Published</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                TailMate Mobile App
+                            </h4>
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Full-stack Flutter app connecting pet owners with service providers using Firebase for real-time features.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-outline">Flutter</span>
+                                <span class="badge-outline">Firebase</span>
+                                <span class="badge-outline">Dart</span>
+                            </div>
+                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Software Project 2 -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-3xl">🚨</span>
+                                <span class="badge-status">Deployed</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                Fire Management System
+                            </h4>
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Secure multi-role web portal for emergency reporting and tracking with real-time updates.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-outline">Django</span>
+                                <span class="badge-outline">HTML</span>
+                                <span class="badge-outline">CSS</span>
+                            </div>
+                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Software Project 3 -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-3xl">🏢</span>
+                                <span class="badge-status">Active</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                Visitors Management Portal
+                            </h4>
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Digital visitor logging system with enhanced security features and comprehensive reporting.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-outline">PHP</span>
+                                <span class="badge-outline">MySQL</span>
+                                <span class="badge-outline">Bootstrap</span>
+                            </div>
+                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Software Project 4 -->
+                    <div class="glass-card rounded-xl overflow-hidden project-card perspective-1000">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-3xl">🎤</span>
+                                <span class="badge-status">Enhanced</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                AI Voice Assistant
+                            </h4>
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Intelligent voice assistant integrated with multiple APIs for weather, search, and automation.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-outline">Python</span>
+                                <span class="badge-outline">APIs</span>
+                                <span class="badge-outline">AI</span>
+                            </div>
+                            <button class="w-full mt-4 py-2 px-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center justify-center gap-2 text-blue-400">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-5xl font-bold mb-4 gradient-text-green-blue">Professional Journey</h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto scroll-reveal">
+                <div class="glass-card p-8 rounded-xl hover:border-green-500/50 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/3">
+                            <span class="badge-status mb-4 inline-block">2024 Internship</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">Python/Django Intern</h3>
+                            <p class="text-blue-400 font-semibold mb-1">Happiest Minds Technologies</p>
+                            <p class="text-gray-400">Remote | Jan 2024 – Mar 2024</p>
+                        </div>
+                        <div class="md:w-2/3">
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                                    Built and maintained web modules using Python & Django framework
+                                </li>
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                                    Developed REST APIs, database models, and backend logic systems
+                                </li>
+                                <li class="flex items-start gap-3 text-gray-300">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                                    Collaborated in Agile team environment delivering weekly features and bug fixes
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 glass-card border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 mb-4">
+                © 2024 Gururaj Kabburi. Engineered with React & Framer Motion.
+            </p>
+            <div class="text-sm text-blue-400">
+                Building the future, one deployment at a time.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Canvas Particle System
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let particles = [];
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        function createParticles() {
+            particles = [];
+            const particleCount = Math.min(100, Math.floor(window.innerWidth / 15));
+            const colors = ['#3B82F6', '#8B5CF6', '#06B6D4', '#10B981', '#F59E0B'];
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    opacity: Math.random() * 0.5 + 0.2,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+        }
+        
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw connections between nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        const opacity = (100 - distance) / 100 * 0.1;
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            // Draw particles
+            particles.forEach(particle => {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = particle.color + Math.floor(particle.opacity * 255).toString(16).padStart(2, '0');
+                ctx.fill();
+                
+                // Add glow effect
+                ctx.shadowColor = particle.color;
+                ctx.shadowBlur = 10;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                
+                // Update particle position
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+                
+                // Wrap around edges
+                if (particle.x < 0) particle.x = canvas.width;
+                if (particle.x > canvas.width) particle.x = 0;
+                if (particle.y < 0) particle.y = canvas.height;
+                if (particle.y > canvas.height) particle.y = 0;
+                
+                // Subtle opacity pulsing
+                particle.opacity += (Math.random() - 0.5) * 0.02;
+                particle.opacity = Math.max(0.1, Math.min(0.8, particle.opacity));
+            });
+        }
+        
+        function animate() {
+            drawParticles();
+            requestAnimationFrame(animate);
+        }
+        
+        resizeCanvas();
+        createParticles();
+        animate();
+        
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            createParticles();
+        });
+        
+        // Typewriter effect
+        const typewriterTexts = [
+            'Cloud Architect',
+            'DevOps Engineer', 
+            'Infrastructure Automator',
+            'System Optimizer'
+        ];
+        let currentTextIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const typewriterElement = document.getElementById('typewriter');
+            const currentText = typewriterTexts[currentTextIndex];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentText.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+            } else {
+                typewriterElement.textContent = currentText.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && currentCharIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentTextIndex = (currentTextIndex + 1) % typewriterTexts.length;
+                typeSpeed = 500;
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
+        }
+        
+        // Start typewriter effect
+        setTimeout(typeWriter, 1000);
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all scroll-reveal elements
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Initialize fade-in animations
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in').forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }, 500);
+    </script>
+</body>
+</html>
